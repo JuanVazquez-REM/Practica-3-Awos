@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', 'AuthController@register')->middleware('MinPassword','AuthEmail','MinEdad');
 Route::post('/login', 'AuthController@login');
 
+Route::get('/register/verify/{code}', 'AuthController@verify');
+
 Route::post('/email', 'UserController@email_prueba');
 Route::get('/sql', 'UserController@sql');
 

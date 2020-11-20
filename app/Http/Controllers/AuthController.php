@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ConfirmacionEmail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use \App\Persona;
 use \App\User;
+use Str;
 
 class AuthController extends Controller
 {
@@ -36,6 +39,7 @@ class AuthController extends Controller
             $user->name = $persona->nombre;
             $user->email = $persona->email;
             $user->password = Hash::make($request->password);
+            $user->confirmation_code  = Str::random(25);
             $user->img_user = "null";
 
             if($user->save() && $request->rol == 1){
@@ -43,7 +47,13 @@ class AuthController extends Controller
             }
 
             if($user->save()){
-                return response()->json(["User"=>$user],201); 
+                $data = (object)[
+                    'user_nombre'=>$user->name,
+                    'user_code'=>$user->confirmation_code,
+                ];
+
+                Mail::to($user->email)->send(new ConfirmacionEmail($data));//Email de confirmacion 
+                return response()->json(["Message"=>"Se a enviado un email para confirmar su correo","User"=>$user],201); 
             }
         }
         return abort(400, "Error al registrar"); 
@@ -51,6 +61,7 @@ class AuthController extends Controller
     
 
     public function login(Request $request){
+
 
         $request->validate([
             'email'=> 'required|email',
@@ -63,6 +74,11 @@ class AuthController extends Controller
             throw ValidationException::withMessages([
                 'email' => ['Email o password incorrectos'],
             ]);
+        }
+        $verify = $user->email_verified_at;
+
+        if($verify==null){
+            return response()->json(["Message"=>"Debe de confirmar su correo electronico para inicar sesion"],400); 
         }
 
         if($request->rol == 1){
@@ -77,6 +93,19 @@ class AuthController extends Controller
 
     public function logout(Request $request){
         return response()->json(["Tokens afectados" => $request->user()->tokens()->delete()],200);
+    }
+
+    public function verify($code){
+        $user = User::where('confirmation_code',$code)->first();
+        if($user){
+            $user->email_verified_at = now();
+            $user->confirmation_code = null; //declaro null el campo para evitar repeticiones de confirmation_code
+            
+            if($user->save()){
+                return "Sea confirmado el correo electronico!!";
+            }
+        }
+        return "Ups...";
     }
 
 }

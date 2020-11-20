@@ -51,7 +51,7 @@ class CommentController extends Controller
             $request_comment->user_id = $request->user()->id;
             $request_comment->contenido = $request->contenido;
 
-            if(1==1){
+            if($request_comment->save()){
                 $email_post = Post::join('users','users.id','=','posts.user_id')
                 ->where('posts.id',$postId)
                 ->select('users.email','posts.titulo','users.name','posts.contenido')
