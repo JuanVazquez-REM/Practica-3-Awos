@@ -20,6 +20,8 @@ Route::post('/login', 'AuthController@login');
 
 Route::get('/register/verify/{code}', 'AuthController@verify');
 
+Route::post('/email/verify', 'AuthController@verify_email');
+
 Route::post('/email', 'UserController@email_prueba');
 Route::get('/sql', 'UserController@sql');
 

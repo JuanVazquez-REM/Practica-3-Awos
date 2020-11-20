@@ -108,5 +108,30 @@ class AuthController extends Controller
         return "Ups...";
     }
 
+    public function verify_email(Request $request){
+
+        $request->validate([
+            'email'=> 'required|email',
+        ]);
+
+        $user = User::where('email',$request->email)->first();
+
+        if($user){
+            
+            
+            $data = (object)[
+                'user_nombre'=>$user->name,
+                'user_code'=>$user->confirmation_code,
+            ];
+            Mail::to($request->email)->send(new ConfirmacionEmail($data));//Email de confirmacion 
+            
+            if($user->save()){
+                return response()->json(["Message"=>"Se a enviado el correo de confirmacion"]);
+            }
+        }
+        return response()->json(["Message"=>"No se encontro ninguna cuenta asociada con este email"]);
+    }
+
+
 }
 

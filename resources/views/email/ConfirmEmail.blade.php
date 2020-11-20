@@ -14,7 +14,7 @@
             </p>
 
             <p>
-                <a href="{{ url('api/register/verify/'.$data->user_code) }}"> Click para confirmar tu email</a>
+                <a href="{{ url('/api/register/verify/'.$data->user_code) }}"> Click para confirmar tu email</a>
             </p>
 
             <p>
