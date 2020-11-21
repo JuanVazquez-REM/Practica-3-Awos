@@ -22,11 +22,6 @@ Route::get('/register/verify/{code}', 'AuthController@verify');
 
 Route::post('/email/verify', 'AuthController@verify_email');
 
-Route::post('/email', 'UserController@email_prueba');
-Route::get('/sql', 'UserController@sql');
-
-
-
 //Users
 Route::middleware(['auth:sanctum'])->group(function () {
     //POSTS
@@ -45,6 +40,13 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     //AUTH:SANCTUM
     Route::post('/logout', 'AuthController@logout'); //listo
+
+    //API Rapid (Diccionario)
+    Route::get('/definition', 'ApiController@definition');
+    Route::get('/word/examples', 'ApiController@word_examples');
+    Route::get('/word', 'ApiController@word_all');
+    Route::get('/word/region', 'ApiController@word_region');
+
 });
 
 

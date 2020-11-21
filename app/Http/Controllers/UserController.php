@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UpdateUserReceived;
 use Illuminate\Http\Request;
 use \App\User;
 use \App\Post;
+
 use DB;
+
 
 //images\/users\/1\/\/6vdkbmGHOVioKnRknuLWOw1mqXLeTltvf7y2KvVG.jpeg
 class UserController extends Controller
@@ -194,4 +197,8 @@ class UserController extends Controller
                 ];
         return $data_email_post->user_email;
     }
+
+    
+
+    
 }
