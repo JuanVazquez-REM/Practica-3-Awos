@@ -133,5 +133,48 @@ class AuthController extends Controller
     }
 
 
+
+//FUNCIONES ANDROID STUDIO
+
+    public function register_android(Request $request){
+        $persona = new Persona;
+
+        $persona->nombre = $request->input('nombre'); 
+        $persona->apellidos = $request->input('apellidos'); 
+        $persona->email = $request->input('email');
+        $persona->edad = $request->input('edad');
+        $persona->genero = $request->input('genero');
+        
+        if($persona->save()){
+
+            $user = new User; 
+            $user->persona_id = $persona->id;
+            $user->name = $persona->nombre;
+            $user->email = $persona->email;
+            $user->password = Hash::make($request->password);
+            $user->confirmation_code  = NULL;
+            $user->img_user = "null";
+
+            if($user->save()){
+                return "Sea registrado correctamente!!"; 
+            }
+        }
+        return abort(400, "Error al registrar"); 
+    }
+    
+
+    public function login_android(Request $request){
+
+        $user = User::where('email', $request->email)->first();
+
+        if(! $user || ! Hash::check($request->password, $user->password)){
+            throw ValidationException::withMessages([
+                'email' => ['Email o password incorrectos'],
+            ]);
+        }
+
+        $token = $user->createToken($request->email,['user:user'])->plainTextToken; //Crea el token y se asignan permisos donde el request->email sea igual al que estan en la bd, despue retornas el token en texto plano 
+        return response()->json(["token" => $token],201);
+    }
 }
 

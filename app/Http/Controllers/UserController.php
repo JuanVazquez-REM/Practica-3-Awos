@@ -121,7 +121,7 @@ class UserController extends Controller
     }
 
 
-    public function mi_user(Request $request){
+    public function mi_user(Request $request){ 
         if($request->user()->tokenCan('user:user')){
             $user = DB::table('users')
             ->join('personas', 'personas.id', '=' ,'users.persona_id')
@@ -200,5 +200,31 @@ class UserController extends Controller
 
     
 
+    public function enviar_archivo(Request $request){ //Alumno 1
+
+        if($request->hasfile('imagen')){
+            $response = Http::post('http://192.168.2.10/api/archivo',[
+                "archivo" => $request->archivo,
+            ]);
+            
+                return $response->json();return Storage::download('file.jpg');
+        }
+    }
+
+    public function guardar_archivo(Request $request){ //Alumno 2 respuesta
+        $path = Storage::disk('public')->putFile('archivos/', $request->imagen);
+        return $path;
+    }
+
+    public function descargar_archivo(Request $request){ //Alumno 1
+        $response = Http::post('http://192.168.2.10/api/descargar/archivo',[
+            "archivo" => $request->$ruta_del_archivo,
+        ]);
+        return Storage::download('file.jpg');
+    }
+
     
+    public function retornar_archivo(Request $request){ //Alumno 2 respuesta
+        return Storage::download($request->$ruta_del_archivo);
+    }
 }

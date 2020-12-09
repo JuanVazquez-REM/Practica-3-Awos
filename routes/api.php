@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//RUTAS ANDROID STUDIO
+Route::post('/registeras', 'AuthController@register_android');
+Route::post('/loginas', 'AuthController@login_android');
+
 
 Route::post('/register', 'AuthController@register')->middleware('MinPassword','AuthEmail','MinEdad');
 Route::post('/login', 'AuthController@login');
