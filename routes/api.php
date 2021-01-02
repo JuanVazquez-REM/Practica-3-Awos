@@ -17,7 +17,45 @@ use Illuminate\Support\Facades\Route;
 //RUTAS ANDROID STUDIO
 Route::post('/registeras', 'AuthController@register_android');
 Route::post('/loginas', 'AuthController@login_android');
+//LEDS
+Route::post('/led-bano', 'AdafruitController@led_bano');
+Route::post('/led-cocina', 'AdafruitController@led_cocina');
+Route::post('/led-cuarto', 'AdafruitController@led_cuarto');
+Route::post('/led-oficina', 'AdafruitController@led_oficina');
+Route::post('/led-sala', 'AdafruitController@led_sala');
+//TEMPERATURA Y HUMEDAD
+Route::get('/temperatura', 'AdafruitController@gettemperatura');
+Route::get('/humedad', 'AdafruitController@gethumedad');
+//ALARMA
+Route::post('/alarma', 'AdafruitController@alarmahumo');
+//FOCO EXTERNO
+Route::get('/getfocoexterno', 'AdafruitController@getfocoexterno');
+Route::post('/postfocoexterno', 'AdafruitController@postfocoexterno');
+//COCHERA
+Route::post('/cochera', 'AdafruitController@cochera');
+Route::get('/getcochera', 'AdafruitController@getcochera');
 
+
+/* Route::middleware(['auth:sanctum'])->group(function () {
+//LEDS
+Route::post('/led-bano', 'AdafruitController@led_bano');
+Route::post('/led-cocina', 'AdafruitController@led_cocina');
+Route::post('/led-cuarto', 'AdafruitController@led_cuarto');
+Route::post('/led-oficina', 'AdafruitController@led_oficina');
+Route::post('/led-sala', 'AdafruitController@led_sala');
+//TEMPERATURA Y HUMEDAD
+Route::get('/temperatura', 'AdafruitController@gettemperatura');
+Route::get('/humedad', 'AdafruitController@gethumedad');
+//ALARMA
+Route::post('/alarma', 'AdafruitController@alarmahumo');
+//FOCO EXTERNO
+Route::get('/getfocoexterno', 'AdafruitController@getfocoexterno');
+Route::post('/postfocoexterno', 'AdafruitController@postfocoexterno');
+//COCHERA
+Route::post('/cochera', 'AdafruitController@cochera');
+Route::get('/getcochera', 'AdafruitController@getcochera');
+
+}); */
 
 Route::post('/register', 'AuthController@register')->middleware('MinPassword','AuthEmail','MinEdad');
 Route::post('/login', 'AuthController@login');
@@ -25,6 +63,7 @@ Route::post('/login', 'AuthController@login');
 Route::get('/register/verify/{code}', 'AuthController@verify');
 
 Route::post('/email/verify', 'AuthController@verify_email');
+Route::get('/posts2', 'PostController@ver_posts2');
 
 //Users
 Route::middleware(['auth:sanctum'])->group(function () {
@@ -49,7 +88,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/definition', 'ApiController@definition');
     Route::get('/word/examples', 'ApiController@word_examples');
     Route::get('/word', 'ApiController@word_all');
-    Route::get('/word/region', 'ApiController@word_region');
+    Route::get('/word/region
+    ', 'ApiController@word_region');
 
 });
 

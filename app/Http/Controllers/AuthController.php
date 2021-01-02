@@ -168,9 +168,7 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if(! $user || ! Hash::check($request->password, $user->password)){
-            throw ValidationException::withMessages([
-                'email' => ['Email o password incorrectos'],
-            ]);
+            return response()->json(["mensajeapi" => "Correo o contraseña incorrecto"],401);
         }
 
         $token = $user->createToken($request->email,['user:user'])->plainTextToken; //Crea el token y se asignan permisos donde el request->email sea igual al que estan en la bd, despue retornas el token en texto plano 

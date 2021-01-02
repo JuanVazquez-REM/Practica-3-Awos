@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use \App\Post;
 use DB;
@@ -19,6 +20,14 @@ class PostController extends Controller
                 response()->json(['Message' => 'Unauthorized'], 401)
             );
         }
+    }
+    public function ver_posts2(){
+
+        $response = Http::withHeaders([
+            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+        ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.humedad');
+
+        return $response;
     }
 
     public function ver_post_id(Request $request,$id){ 
