@@ -109,7 +109,7 @@ class AdafruitController extends Controller
 
     public function getcochera(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
+            'X-AIO-Key' => 'aio_eSQC58xEzNCRtGUQWDtCnL9mw8ot',
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.cochera');
         return $response;
     }
