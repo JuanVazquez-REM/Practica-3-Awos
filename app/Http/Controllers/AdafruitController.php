@@ -9,7 +9,7 @@ class AdafruitController extends Controller
 {
     public function led_bano(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-bano/data',[
             'value'=>$request->value
         ]);
@@ -18,7 +18,7 @@ class AdafruitController extends Controller
 
     public function led_cocina(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-cocina/data',[
             'value'=>$request->value
         ]);
@@ -27,7 +27,7 @@ class AdafruitController extends Controller
 
     public function led_cuarto(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-cuarto/data',[
             'value'=>$request->value
         ]);
@@ -36,7 +36,7 @@ class AdafruitController extends Controller
 
     public function led_oficina(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-oficina/data',[
             'value'=>$request->value
         ]);
@@ -45,7 +45,7 @@ class AdafruitController extends Controller
 
     public function led_sala(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-sala/data',[
             'value'=>$request->value
         ]);
@@ -56,14 +56,14 @@ class AdafruitController extends Controller
 
     public function gettemperatura(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.temperaturavalue');
         return $response;
     }
 
     public function gethumedad(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.humedad');
         return $response;
     }
@@ -71,7 +71,7 @@ class AdafruitController extends Controller
     //ALARMA
     public function alarmahumo(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.alarmahumo/data',[
             'value'=>'0'
         ]);
@@ -82,14 +82,14 @@ class AdafruitController extends Controller
 
     public function getfocoexterno(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.focoexterno');
         return $response;
     }
 
     public function postfocoexterno(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.focoexterno/data',[
             'value'=>$request->value
         ]);
@@ -100,7 +100,7 @@ class AdafruitController extends Controller
     //COCHERA
     public function cochera(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.cochera/data',[
             'value'=>$request->value
         ]);
@@ -109,7 +109,7 @@ class AdafruitController extends Controller
 
     public function getcochera(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_JwKR01g4EFRFra1IHYMlgVCfXPK5',
+            'X-AIO-Key' => 'aio_lKJJ803bBOO6oWDOa6MzGfSyTgEq',
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.cochera');
         return $response;
     }
