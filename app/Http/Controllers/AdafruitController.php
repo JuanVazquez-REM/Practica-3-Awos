@@ -111,7 +111,7 @@ public function get_sala(Request $request){
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.alarmahumo/data',[
             'value'=>'0'
         ]);
-        return $response;
+        return $response; //comentario 
     }
 
     //FOCO EXTERNO
