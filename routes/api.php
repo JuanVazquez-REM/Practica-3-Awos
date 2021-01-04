@@ -19,11 +19,11 @@ Route::post('/registeras', 'AuthController@register_android');
 Route::post('/loginas', 'AuthController@login_android');
 
 //GET LEDS
-Route::get('/get-bano', 'AdafruitController@get_bano');
-Route::get('/get-cocina', 'AdafruitController@get_cocina');
-Route::get('/get-sala', 'AdafruitController@get_sala');
-Route::get('/get-oficina', 'AdafruitController@get_oficina');
-Route::get('/get-cuarto', 'AdafruitController@get_cuarto');
+Route::post('/get-bano', 'AdafruitController@get_bano');
+Route::post('/get-cocina', 'AdafruitController@get_cocina');
+Route::post('/get-sala', 'AdafruitController@get_sala');
+Route::post('/get-oficina', 'AdafruitController@get_oficina');
+Route::post('/get-cuarto', 'AdafruitController@get_cuarto');
 
 //LEDS
 Route::post('/led-bano', 'AdafruitController@led_bano');
@@ -32,7 +32,7 @@ Route::post('/led-cuarto', 'AdafruitController@led_cuarto');
 Route::post('/led-oficina', 'AdafruitController@led_oficina');
 Route::post('/led-sala', 'AdafruitController@led_sala');
 //TEMPERATURA Y HUMEDAD
-Route::get('/temperatura', 'AdafruitController@gettemperatura');
+Route::post('/temperatura', 'AdafruitController@gettemperatura');
 Route::post('/humedad', 'AdafruitController@gethumedad');
 //ALARMA
 Route::post('/alarma', 'AdafruitController@alarmahumo');
