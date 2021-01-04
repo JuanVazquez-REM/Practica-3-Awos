@@ -20,6 +20,11 @@ Route::post('/loginas', 'AuthController@login_android');
 
 //GET LEDS
 Route::get('/get-bano', 'AdafruitController@get_bano');
+Route::get('/get-cocina', 'AdafruitController@get_cocina');
+Route::get('/get-sala', 'AdafruitController@get_sala');
+Route::get('/get-oficina', 'AdafruitController@get_oficina');
+Route::get('/get-cuarto', 'AdafruitController@get_cuarto');
+
 //LEDS
 Route::post('/led-bano', 'AdafruitController@led_bano');
 Route::post('/led-cocina', 'AdafruitController@led_cocina');
