@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 //RUTAS ANDROID STUDIO
 Route::post('/registeras', 'AuthController@register_android');
 Route::post('/loginas', 'AuthController@login_android');
+
+//GET LEDS
+Route::get('/get-bano', 'AdafruitController@get_bano');
 //LEDS
 Route::post('/led-bano', 'AdafruitController@led_bano');
 Route::post('/led-cocina', 'AdafruitController@led_cocina');

@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class AdafruitController extends Controller
 {
+    public function get_bano(){
+        $response = Http::withHeaders([
+            'X-AIO-Key' => 'aio_eSQC58xEzNCRtGUQWDtCnL9mw8ot',
+        ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-bano');
+        return $response;
+    }
+
+
     public function led_bano(Request $request){
         $response = Http::withHeaders([
             'X-AIO-Key' => 'aio_eSQC58xEzNCRtGUQWDtCnL9mw8ot',
@@ -107,10 +115,12 @@ class AdafruitController extends Controller
         return $response;
     }
 
-    public function getcochera(Request $request){
+    public function getcochera(){
         $response = Http::withHeaders([
             'X-AIO-Key' => 'aio_eSQC58xEzNCRtGUQWDtCnL9mw8ot',
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.cochera');
-        return $response;
+        $es = $response->username;
+        return $es;
     }
+
 }
