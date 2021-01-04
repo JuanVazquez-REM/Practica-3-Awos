@@ -99,7 +99,7 @@ public function get_sala(){
 
     public function gethumedad(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' =>"aio_XUyd19HoynVYDqhVXg3EXDVkj36Q",
+            'X-AIO-Key' =>$request->keyada,
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.humedad');
         return $response;
     }
