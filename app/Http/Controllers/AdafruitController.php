@@ -14,6 +14,34 @@ class AdafruitController extends Controller
         return $response;
     }
 
+public function get_cocina(){
+        $response = Http::withHeaders([
+            'X-AIO-Key' => 'aio_eSQC58xEzNCRtGUQWDtCnL9mw8ot',
+        ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-cocina');
+        return $response;
+    }
+
+public function get_oficina(){
+        $response = Http::withHeaders([
+            'X-AIO-Key' => 'aio_eSQC58xEzNCRtGUQWDtCnL9mw8ot',
+        ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-oficina');
+        return $response;
+    }
+
+public function get_cuarto(){
+        $response = Http::withHeaders([
+            'X-AIO-Key' => 'aio_eSQC58xEzNCRtGUQWDtCnL9mw8ot',
+        ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-cuarto');
+        return $response;
+    }
+
+public function get_sala(){
+        $response = Http::withHeaders([
+            'X-AIO-Key' => 'aio_eSQC58xEzNCRtGUQWDtCnL9mw8ot',
+        ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-sala');
+        return $response;
+    }
+
 
     public function led_bano(Request $request){
         $response = Http::withHeaders([
