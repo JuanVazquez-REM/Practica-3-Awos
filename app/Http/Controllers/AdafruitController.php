@@ -7,42 +7,42 @@ use Illuminate\Http\Request;
 
 class AdafruitController extends Controller
 {
-    public function get_bano(){
+    public function get_bano(Request $request){
         $response = Http::withHeaders([
             'X-AIO-Key' => $request->input('ada'),
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-bano');
         return $response;
     }
 
-public function get_cocina(){
+public function get_cocina(Request $request){
         $response = Http::withHeaders([
             'X-AIO-Key' => $request->input('ada'),
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-cocina');
         return $response;
     }
 
-public function get_oficina(){
+public function get_oficina(Request $request){
         $response = Http::withHeaders([
             'X-AIO-Key' => $request->input('ada'),
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-oficina');
         return $response;
     }
 
-public function get_cuarto(){
+public function get_cuarto(Request $request){
         $response = Http::withHeaders([
             'X-AIO-Key' => $request->input('ada'),
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-cuarto');
         return $response;
     }
 
-public function get_sala(){
+public function get_sala(Request $request){
         $response = Http::withHeaders([
             'X-AIO-Key' =>$request->input('ada')
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-sala');
         return $response;
     }
 
-
+    //LEDS POST
     public function led_bano(Request $request){
         $response = Http::withHeaders([
             'X-AIO-Key' => $request->input('ada'),
