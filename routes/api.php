@@ -33,7 +33,7 @@ Route::post('/led-oficina', 'AdafruitController@led_oficina');
 Route::post('/led-sala', 'AdafruitController@led_sala');
 //TEMPERATURA Y HUMEDAD
 Route::get('/temperatura', 'AdafruitController@gettemperatura');
-Route::get('/umedad', 'AdafruitController@gethumedad');
+Route::post('/umedad', 'AdafruitController@gethumedad');
 //ALARMA
 Route::post('/alarma', 'AdafruitController@alarmahumo');
 //FOCO EXTERNO
