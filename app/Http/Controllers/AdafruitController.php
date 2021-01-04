@@ -54,7 +54,7 @@ public function get_sala(){
 
     public function led_cocina(Request $request){
         $response = Http::withHeaders([
-            'X-AIO-Key' => 'aio_BGKP65MPTXzb628cX16QSIZrqx5I$request->keyada,
+            'X-AIO-Key' => $request->keyada,
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.led-cocina/data',[
             'value'=>$request->value
         ]);
