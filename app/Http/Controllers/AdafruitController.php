@@ -109,7 +109,7 @@ public function get_sala(Request $request){
         $response = Http::withHeaders([
             'X-AIO-Key' =>$request->input('ada'),
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.alarmahumo/data',[
-            'value'=>'0'
+            'value'=>'OFF'
         ]);
         return $response; //comentario 
     }

@@ -42,9 +42,9 @@ class AuthController extends Controller
             $user->confirmation_code  = Str::random(25);
             $user->img_user = "null";
 
-            if($user->save() && $request->rol == 1){
+            /* if($user->save() && $request->rol == 1){
                 return response()->json(["Admin"=>$user],201); 
-            }
+            } */
 
             if($user->save()){
                 $data = (object)[
@@ -53,7 +53,7 @@ class AuthController extends Controller
                 ];
 
                 Mail::to($user->email)->send(new ConfirmacionEmail($data));//Email de confirmacion 
-                return response()->json(["Message"=>"Se a enviado un email para confirmar su correo","User"=>$user],201); 
+                return "Se a enviado un email para confirmar su correo"; 
             }
         }
         return abort(400, "Error al registrar"); 
