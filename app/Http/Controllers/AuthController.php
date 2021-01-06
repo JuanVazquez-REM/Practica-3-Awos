@@ -78,16 +78,16 @@ class AuthController extends Controller
         $verify = $user->email_verified_at;
 
         if($verify==null){
-            return response()->json(["Message"=>"Debe de confirmar su correo electronico para inicar sesion"],400); 
+            return "Debe de confirmar su correo electronico para inicar sesion";
         }
 
         if($request->rol == 1){
             $token = $user->createToken($request->email,['admin:admin','user:user'])->plainTextToken; //Crea el token y se asignan permisos donde el request->email sea igual al que estan en la bd, despue retornas el token en texto plano 
-        }else{
-            $token = $user->createToken($request->email,['user:user'])->plainTextToken; //Crea el token y se asignan permisos donde el request->email sea igual al que estan en la bd, despue retornas el token en texto plano 
+        }else{ 
+        $token = $user->createToken($request->email,['user:user'])->plainTextToken; //Crea el token y se asignan permisos donde el request->email sea igual al que estan en la bd, despue retornas el token en texto plano 
         }
         
-        return response()->json(["token" => $token],201);
+        return $token;
     }
 
 
@@ -168,7 +168,12 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if(! $user || ! Hash::check($request->password, $user->password)){
-            return ["token" => "010","correcto"=>1];
+            return ["token" => "Correo o contraseña incorrecta","correcto"=>1];
+        }
+        $verify = $user->email_verified_at;
+
+        if($verify==null){
+            return ["token" => "Debe de confirmar su correo electronico para inicar sesion","correcto"=>2];
         }
 
         $token = $user->createToken($request->email,['user:user'])->plainTextToken; //Crea el token y se asignan permisos donde el request->email sea igual al que estan en la bd, despue retornas el token en texto plano 
