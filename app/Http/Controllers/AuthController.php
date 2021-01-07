@@ -53,10 +53,10 @@ class AuthController extends Controller
                 ];
 
                 Mail::to($user->email)->send(new ConfirmacionEmail($data));//Email de confirmacion 
-                return "Se a enviado un email para confirmar su correo"; 
+                return ["mensaje"=>"Se a enviado un email para confirmar su correo","codigo"=>1]; 
             }
         }
-        return abort(400, "Error al registrar"); 
+        return ["mensaje"=>"Ups. Correo ya registrado","codigo"=>2]; 
     }
     
 

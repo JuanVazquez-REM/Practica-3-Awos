@@ -65,7 +65,7 @@ Route::get('/getcochera', 'AdafruitController@getcochera');
 
 }); */
 
-Route::post('/register', 'AuthController@register')->middleware('MinPassword','AuthEmail','MinEdad');
+Route::post('/register', 'AuthController@register');//->middleware('MinPassword','AuthEmail','MinEdad');
 Route::post('/login', 'AuthController@login');
 
 Route::get('/register/verify/{code}', 'AuthController@verify');
