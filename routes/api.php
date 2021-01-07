@@ -40,8 +40,8 @@ Route::post('/alarma', 'AdafruitController@alarmahumo');
 Route::get('/getfocoexterno', 'AdafruitController@getfocoexterno');
 Route::post('/postfocoexterno', 'AdafruitController@postfocoexterno');
 //COCHERA
-Route::post('/cochera', 'AdafruitController@cochera');
-Route::get('/getcochera', 'AdafruitController@getcochera');
+Route::post('/cochera', 'AdafruitController@post_cochera');
+Route::post('/getcochera', 'AdafruitController@getcochera');
 
 
 /* Route::middleware(['auth:sanctum'])->group(function () {

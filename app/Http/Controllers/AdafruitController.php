@@ -134,16 +134,16 @@ public function get_sala(Request $request){
 
 
     //COCHERA
-    public function cochera(Request $request){
+    public function post_cochera(Request $request){
         $response = Http::withHeaders([
             'X-AIO-Key' =>$request->input('ada'),
         ])->post('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.cochera/data',[
-            'value'=>$request->value
+            'value'=>$request->input('value')
         ]);
         return $response;
     }
 
-    public function getcochera(){
+    public function getcochera(Request $request){
         $response = Http::withHeaders([
             'X-AIO-Key' =>$request->input('ada'),
         ])->get('https://io.adafruit.com/api/v2/JuanVazquez/feeds/proyectofinal.cochera');
