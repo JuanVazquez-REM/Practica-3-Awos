@@ -8,9 +8,8 @@
         <h3>{{$data->user_nombre}},</h3>
         <div>
             <p>
-                Para finalizar tu registro tienes que verificar esta direccion de correo electronico <br>
-                Para poder iniciar sesion debes de confirmar tu correo electronico solo sa click en<br>
-                siguiente enlace. <br>
+                Bienvenido a SmartHome, para finalizar tu registro debes de verificar tu correo electronico <br>
+                Solo has click en siguiente enlace y podrar inicar sesion. <br>
             </p>
 
             <p>
@@ -18,7 +17,7 @@
             </p>
 
             <p>
-                Saludos <b>{{$data->user_nombre}}</b> que tengas un excelente dia te lo deasea laravel!!!
+                Saludos <b>{{$data->user_nombre}}</b> que tengas un excelente dia te lo deasea SmartHome!!!
             </p>
             
         
